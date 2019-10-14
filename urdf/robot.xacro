@@ -105,10 +105,12 @@
 	        </collision>
         </link>
         
-        <joint name="wheel_${suffix}" type="continuous">
-                <origin xyz="-0.10 0.4 0.0" rpy="-1.57 0 0"/>
+        <joint name="wheel_${suffix}_joint" type="continuous">
+                <origin xyz="-0.10 0.4 0.0" rpy="0 0 -1.57"/>
                 <parent link="base"/>
                 <child link="wheel_${suffix}"/>
+                <!--<axis xyz = "0 0 1"/>--> 
+                <!--weird things happening when axis added-->
         </joint>
 </xacro:macro>     
 <xacro:xacro_name suffix="left" reflect="1" />
@@ -131,10 +133,12 @@
 	        </collision>
         </link>
 
-        <joint name="wheel_center" type="continuous">
-                <origin xyz="0.10 0 0" rpy="-1.57 0 0"/>
+        <joint name="wheel_center_joint" type="continuous">
+                <origin xyz="0.10 0 0" rpy="0 0 -1.57"/>
                 <parent link="base"/>
                 <child link="wheel_center"/>
+                <axis xyz = "0 0 1"/> 
+                <!--weird things happening when axis added-->
         </joint>
 
  <!--JOINTS-->       

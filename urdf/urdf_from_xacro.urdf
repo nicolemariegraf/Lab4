@@ -93,8 +93,8 @@
       </geometry>
     </collision>
   </link>
-  <joint name="wheel_left" type="fixed">
-    <origin rpy="-1.57 0 0" xyz="-0.10 0.4 0.0"/>
+  <joint name="wheel_left_joint" type="continuous">
+    <origin rpy="0 0 -1.57" xyz="-0.10 0.4 0.0"/>
     <parent link="base"/>
     <child link="wheel_left"/>
   </joint>
@@ -112,8 +112,8 @@
       </geometry>
     </collision>
   </link>
-  <joint name="wheel_right" type="fixed">
-    <origin rpy="-1.57 0 0" xyz="-0.10 0.4 0.0"/>
+  <joint name="wheel_right_joint" type="continuous">
+    <origin rpy="0 0 -1.57" xyz="-0.10 0.4 0.0"/>
     <parent link="base"/>
     <child link="wheel_right"/>
   </joint>
@@ -131,8 +131,8 @@
       </geometry>
     </collision>
   </link>
-  <joint name="wheel_center" type="fixed">
-    <origin rpy="-1.57 0 0" xyz="0.10 0 0"/>
+  <joint name="wheel_center_joint" type="continuous">
+    <origin rpy="0 -1.57 0" xyz="0.10 0 0"/>
     <parent link="base"/>
     <child link="wheel_center"/>
   </joint>
