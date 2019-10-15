@@ -11,7 +11,7 @@
 <!--  units are in meters  -->
 <!--  if you do not put in an origin, it defaults to the COM  -->
  <!--LINKS-->  
-
+ 
         <link name = "base">
                 <visual>
                         <origin xyz="0 0 0.99" rpy="0 0 0"/>
@@ -27,17 +27,15 @@
 	                </geometry>
 	        </collision>
         </link>
-
+<!--
         <link name = "laser_vert_bottom">
 	        <visual>
-	                <!--<origin xyz="0 0 0" rpy="3.1355 -1.3045 0.0025"/>-->
 	                <geometry>
 	                        <box size="0.062 0.062 0.087" />
 	                </geometry>
  	        </visual>
 
 	        <collision>
-	                <!--<origin xyz="0 0 0" rpy="3.1355 -1.3045 0.0025"/>-->
 	                <geometry>
 	                        <box size="0.062 0.062 0.087" />
 	                </geometry>
@@ -46,14 +44,12 @@
 
         <link name = "laser_vert_top_right">
 	        <visual>
-	                <!--<origin xyz="0 0 0" rpy="-1.1760 0.6313 1.9377"/>-->
 	                <geometry>
 	                        <box size="0.062 0.062 0.087" />
 	                </geometry>
  	        </visual>
 
 	        <collision>
-	                <!--<origin xyz="0 0 0" rpy="-1.1760 0.6313 1.9377"/>-->
 	                <geometry>
 	                        <box size="0.062 0.062 0.087" />
 	                </geometry>
@@ -62,14 +58,12 @@
 
         <link name = "laser_vert_top_left">
 	        <visual>
-	                <!--<origin xyz="0 0 0" rpy="1.1780 0.6198 1.9560"/>-->
 	                <geometry>
 	                        <box size="0.062 0.062 0.087" />
 	                </geometry>
  	        </visual>
 
 	        <collision>
-	                <!--<origin xyz="0 0 0" rpy="1.1780 0.6198 1.9560"/>-->
 	                <geometry>
 	                        <box size="0.062 0.062 0.087" />
 	                </geometry>
@@ -78,33 +72,30 @@
 
         <link name = "laser_horiz">
 	        <visual>
-	                <!--<origin xyz="0 0 0" rpy="-0.0012068 0.114646 -0.0015308"/>-->
 	                <geometry>
 	                        <cylinder radius="0.052" length="0.072"/>
 	                </geometry>
  	                </visual>
 
 	        <collision>
-	                <!--<origin xyz="0 0 0" rpy="-0.0012068 0.114646 -0.0015308"/> -->
 	                <geometry>
 	                        <cylinder radius="0.052" length="0.072"/>
 	                </geometry>
 	        </collision>
         </link>
-        
+ --> 
+         
  <!--WHEELS-->  
  
 <xacro:macro name="xacro_name" params="suffix reflect">
         <link name = "wheel_${suffix}">
 	        <visual>
-	                <origin xyz="-0.10 ${reflect * 0.4} 0" />
 	                <geometry>
 	                        <cylinder radius="0.2" length="0.05"/>
 	                </geometry>
  	                </visual>
 
 	        <collision>
-	                <origin xyz="-0.10 ${reflect * 0.4} 0" />
 	                <geometry>
 	                        <cylinder radius="0.2" length="0.05"/>
 	                </geometry>
@@ -112,7 +103,7 @@
         </link>
         
         <joint name="wheel_${suffix}_joint" type="continuous">
-                <origin xyz="-0.10 ${reflect*0.4} 0.0" rpy="-1.57 0 0"/>
+                <origin xyz="-0.10 ${reflect*0.4} 0.0" rpy="-${pi/2} 0 0"/>
                 <parent link="base"/>
                 <child link="wheel_${suffix}"/>
                 <axis xyz = "0 0 1"/>
@@ -139,7 +130,7 @@
         </link>
 
         <joint name="wheel_center_joint" type="continuous">
-                <origin xyz="0.10 0 0" rpy="-1.57 0 0"/>
+                <origin xyz="0.10 0 0" rpy="-${pi/2} 0 0"/>
                 <parent link="base"/>
                 <child link="wheel_center"/>
                 <axis xyz = "0 0 1"/> 
